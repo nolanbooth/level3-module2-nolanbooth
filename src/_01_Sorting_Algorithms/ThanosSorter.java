@@ -1,4 +1,7 @@
+
 package _01_Sorting_Algorithms;
+
+import java.util.Random;
 
 public class ThanosSorter extends Sorter {
 	public ThanosSorter() {
@@ -42,19 +45,24 @@ public class ThanosSorter extends Sorter {
 	}
 
 	private void thanosSort(int[] array, SortingVisualizer display) {
-		int newMid = array.length/2;
-		for (int k = 0; k < array.length; k++) {
-			
-			for (int i = 0; i < array.length; i++) {
+		Random rand = new Random();
+		int newMid = (array.length) / 2;
+		int count = 0;
+		
+		for(int i = 0; i < (array.length)/2; i++) {
+			if(rand.nextInt(2) == 0) {
+				System.out.println("0");
 				
-				if (i >= newMid) {
-					array[i] = 0;
-				}
+			}else {
+				System.out.println("1");
 				
-				display.updateDisplay();
-
+				
 			}
-			newMid = newMid/2;
+			
+			
+			
 		}
+		
+		
 	}
 }
