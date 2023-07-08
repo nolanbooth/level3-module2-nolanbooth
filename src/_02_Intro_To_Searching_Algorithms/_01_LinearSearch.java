@@ -14,6 +14,7 @@ public class _01_LinearSearch {
     	for(int i = 0; i < words.length; i++) {
     		if(words[i] == value) {
     			return i;
+    			
     		}
     	}
         return -1;

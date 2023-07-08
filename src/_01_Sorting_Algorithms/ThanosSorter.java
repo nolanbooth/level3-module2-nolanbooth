@@ -45,24 +45,48 @@ public class ThanosSorter extends Sorter {
 	}
 
 	private void thanosSort(int[] array, SortingVisualizer display) {
-		Random rand = new Random();
-		int newMid = (array.length) / 2;
-		int count = 0;
-		
-		for(int i = 0; i < (array.length)/2; i++) {
-			if(rand.nextInt(2) == 0) {
-				System.out.println("0");
-				
-			}else {
-				System.out.println("1");
-				
-				
+		Random rando = new Random();
+		int arrayStart = 0;
+		int arrayFinish = array.length;
+
+		System.out.println();
+		System.out.println("Array Start = " + arrayStart + "  Array Finish = " + arrayFinish);
+		bill: for (int i = 0; i < array.length; i++) {
+			if (rando.nextInt(2) == 0) {
+				int mid = (arrayStart + arrayFinish) / 2;
+				for (int k = arrayStart; k < mid; k++) {
+					array[k] = 0;
+
+				}
+				arrayStart = mid;
+
+			} else {
+				int mid = (arrayStart + arrayFinish)/2;
+				for (int k = mid; k < arrayFinish; k++) {
+					array[k] = 0;
+					display.updateDisplay();
+
+				}
+				arrayFinish = mid;
+
 			}
-			
-			
-			
+
+			for (int k = 0; k < array.length; k++) {
+				System.out.print(array[k] + ", ");
+			}
+			System.out.println();
+			System.out.println("Array Start = " + arrayStart + "  Array Finish = " + arrayFinish);
+			int score = 0;
+			for (int k = 0; k < array.length - 1; k++) {
+				if (array[k] > array[k + 1]) {
+					score++;
+				}
+
+			}
+			if (score == 0) {
+				break bill;
+			}
+
 		}
-		
-		
 	}
 }
