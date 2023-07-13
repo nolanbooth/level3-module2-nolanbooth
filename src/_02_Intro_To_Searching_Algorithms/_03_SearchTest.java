@@ -27,7 +27,7 @@ class _03_SearchTest {
         //    remember that the array must be sorted
        int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
-    	assertEquals(-1, _02_BinarySearch.binarySearch(array, 0, 9, 11));
+    	assertEquals(-1, _02_BinarySearch.binarySearch(array, 0, 9, 110));
     	assertEquals(0,  _02_BinarySearch.binarySearch(array, 0, 9, 1));
     	assertEquals(9,  _02_BinarySearch.binarySearch(array, 0, 9, 10));
     }
