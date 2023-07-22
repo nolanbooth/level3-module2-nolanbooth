@@ -1,6 +1,10 @@
 package _04_JavaClassSearchAndSort;
 
 import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Collections;
 
 /*
  * Use the Arrays and Collections classes to implement the search and sort
@@ -9,22 +13,41 @@ import java.util.List;
 public class _02_JavaClassSearchSort {
     
     public static int[] arraySort(int[] arr) {
-        
-        return null;
+        Arrays.sort(arr);
+    	
+    	
+        return arr;
     }
     
     public static List<Double> listSort(List<Double> list){
-        
-        return null;
+        Collections.sort(list);
+    	
+    	
+        return list;
     }
 
     public static Boolean arraySearch(char[] arr, char key) {
-        
-        return null;
+        Arrays.sort(arr);
+    	int index = -1;
+        index = Arrays.binarySearch(arr, key);
+    	System.out.println(index);
+        if(index < 0) {
+    		return false;
+    	}else {
+        return true;
+    	}
     }
     
     public static Boolean listSearch(List<Character> list, Character key) {
-        
-        return null;
+        Collections.sort(list);
+    	int index = 0;
+    	index = Collections.binarySearch(list, key);
+    	if(index < 0) {
+    		return false;
+    	
+    	}else {
+    		return true;
+    	}
+
     }
 }

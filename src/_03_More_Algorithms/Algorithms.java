@@ -109,50 +109,72 @@ public class Algorithms {
 		ArrayList<Double> sortedScores = new ArrayList<Double>();
 
 		double smallestValue;
-		john: for (int i = clone.size()-1; i >= 0; i--) {
+		int smallestIndex;
+		john: for (int i = clone.size() - 1; i >= 0; i--) {
 			smallestValue = 1000;
-
+			smallestIndex = 0;
 			for (int k = 0; k < clone.size(); k++) {
 				if (clone.get(k) < smallestValue) {
 					smallestValue = clone.get(k);
-					
+					smallestIndex = k;
 				}
 			}
 			// smallestValue is now the smallest value in the clone array list
-
+			// smallest index is equal to the smallest index
 			System.out.println(smallestValue);
-			// print smallest value
-			int smallestIndex = 0;
-			bill: for (int j = 0; j < clone.size(); j++) {
-				if (clone.get(j) == smallestValue) {
-					smallestIndex = j;
-
-					break bill;
-
-				}
-				clone.remove(smallestIndex);
-			}
+			System.out.println(smallestIndex);
+			// print smallest value + index
+			clone.remove(smallestIndex);
 			// finds index of smallest value, then removes it
 			sortedScores.add(smallestValue);
 			// adds smallest value to the sorted Scores array list
 
-			
 			// if the size of sorted scores is equal to the size of the results array list,
 			// then break the john loop
 
 		}
-		
-		for(int i = 0; i < sortedScores.size(); i++) {
+
+		for (int i = 0; i < sortedScores.size(); i++) {
 			System.out.println(sortedScores.get(i));
 		}
 		return sortedScores;
 	}
 
-	public static String sortDNA(List<String> unsortedSequences) {
-		return null;
-	}
+	public static List<String> sortDNA(List<String> unsortedSequences) {
+		
+		
+		ArrayList<String> clone = new ArrayList<String>(unsortedSequences);
+		for (int i = 0; i < clone.size(); i++) {
+			for (int k = 0; k < clone.size() - 1; k++) {
+				if (clone.get(k).length() > clone.get(k + 1).length()) {
+					String bucket = clone.get(k);
+					clone.set(k, clone.get(k+1));
+					clone.set(k+1, bucket);
+				}
 
-	public static String sortWords(List<String> words) {
-		return null;
+			}
+		}
+
+		return clone;
+	}
+	//0 means they are equal
+	//
+	//
+	
+	public static List<String> sortWords(List<String> words) {
+		ArrayList<String> clone = new ArrayList<String>(words);
+		for(int i = 0; i < clone.size(); i++) {
+			for(int k = 0; k < clone.size()-1; k++) {
+				if(clone.get(k).compareTo(clone.get(k+1)) == 0) {
+					String bucket = clone.get(k+1);
+					clone.set(k, clone.get(k+1));
+					clone.set(k+1, bucket);
+				}
+			}
+		}
+		
+		
+		
+		return clone;
 	}
 }
